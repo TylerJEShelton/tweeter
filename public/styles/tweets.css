@@ -1,0 +1,74 @@
+article.tweet {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #545149;
+  padding: 15px 15px 15px 10px; 
+  margin-top: 40px;
+}
+
+article.tweet header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+article.tweet .left-head-tweet {
+  display: flex;
+  align-items: center;
+}
+
+article.tweet img {
+  width: 25%;
+  height: auto;
+  margin-right: 10px;
+}
+
+article.tweet .right-head-tweet {
+  display: flex;
+  color: #b7b5af;
+  align-items: center;
+}
+
+.tweet-body {
+  border-color: #545149;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+
+article.tweet footer {
+  margin-top: 8px;
+  margin-bottom: 11px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+article.tweet .left-foot-tweet {
+  display: flex;
+  align-items: center;
+  font-size: 75%;
+}
+
+article.tweet .right-foot-tweet {
+  display: flex;
+  color: #78766e;
+  align-items: center;
+  font-size: 60%;
+}
+
+article.tweet i {
+  margin-left: 13px;
+}
+
+/* Hover Styles */
+
+article:hover {
+  box-shadow: 4px 4px 5px #4056A1; 
+}
+
+article.tweet i:hover {
+  color: #ec551e;
+}
