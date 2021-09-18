@@ -6,6 +6,7 @@
 $(document).ready(function() {
 
   const renderTweets = tweets => {
+    console.log(tweets);
     // loops through the tweets database to pass through each tweet into createTweetElement which builds the tweet in order to append it to the tweets container in index.html
     tweets.forEach(tweetData => {
       const $tweet = createTweetElement(tweetData);
@@ -43,6 +44,16 @@ $(document).ready(function() {
     return tweet;
   };
 
+  $("form").submit(function(event) {
+    event.preventDefault();
+    const form = $(this);
+    $.ajax({
+      url: "/tweets",
+      type: "POST",
+      data: form.serialize(),
+    });
+  });
+
   // Test Data and Call
 
   const data = [
@@ -74,3 +85,47 @@ $(document).ready(function() {
   renderTweets(data);
 
 });
+
+// function renderDog(dog) {
+//   getDogImg((response) => {
+//     console.log(response);
+//     let img = `
+//       <div>
+//         <h2>${dog.name}</h2>
+//         <img src="${response.message}" />
+//       </div>
+//     `;
+//     $("#feed").prepend(img);
+//   });
+// }
+
+// function getDogImg(callback) {
+//   $.get(`https://dog.ceo/api/breeds/image/random`).then(callback);
+// }
+
+// function loadDogs() {
+//   $.get("/dogs").then((dogs) => {
+//     dogs.forEach((dog) => {
+//       renderDog(dog);
+//     });
+//   });
+// }
+
+// $("form").submit(function (event) {
+//   event.preventDefault();
+
+//   const form = $(this);
+
+//   $.ajax({
+//     url: "/dogs",
+//     type: "POST",
+//     data: form.serialize(),
+//   }).then((dog) => {
+//     renderDog(dog);
+//   });
+// });
+
+// // syntax means to run the code right away.
+// $(() => {
+//   loadDogs();
+// });
