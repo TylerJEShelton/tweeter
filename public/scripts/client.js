@@ -54,78 +54,16 @@ $(document).ready(function() {
     });
   });
 
-  // Test Data and Call
+  const loadTweets = () => {
+    $.ajax('/tweets', { method: 'GET' })
+      .then(function(tweets) {
+        renderTweets(tweets);
+        //$button.replaceWith(morePostsHtml);
+      });
 
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1631896232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd"
-      },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1631891832227
-    }
-  ]
+  };
 
-  renderTweets(data);
+  // Call loadTweets to load all the tweets from the database
 
+  loadTweets();
 });
-
-// function renderDog(dog) {
-//   getDogImg((response) => {
-//     console.log(response);
-//     let img = `
-//       <div>
-//         <h2>${dog.name}</h2>
-//         <img src="${response.message}" />
-//       </div>
-//     `;
-//     $("#feed").prepend(img);
-//   });
-// }
-
-// function getDogImg(callback) {
-//   $.get(`https://dog.ceo/api/breeds/image/random`).then(callback);
-// }
-
-// function loadDogs() {
-//   $.get("/dogs").then((dogs) => {
-//     dogs.forEach((dog) => {
-//       renderDog(dog);
-//     });
-//   });
-// }
-
-// $("form").submit(function (event) {
-//   event.preventDefault();
-
-//   const form = $(this);
-
-//   $.ajax({
-//     url: "/dogs",
-//     type: "POST",
-//     data: form.serialize(),
-//   }).then((dog) => {
-//     renderDog(dog);
-//   });
-// });
-
-// // syntax means to run the code right away.
-// $(() => {
-//   loadDogs();
-// });
