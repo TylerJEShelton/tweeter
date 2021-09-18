@@ -3,7 +3,17 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
+//const escape = require('./escape');
+
 $(document).ready(function() {
+
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    console.log(div.innerHTML);
+    return div.innerHTML;
+  };
 
   const renderTweets = tweets => {
     // loops through the tweets database to pass through each tweet into createTweetElement which builds the tweet in order to append it to the tweets container in index.html
@@ -27,7 +37,7 @@ $(document).ready(function() {
           </div>
         </header>
         <div class="tweet-body">
-        ${tweetData.content.text}
+        ${escape(tweetData.content.text)}
         </div>
         <footer>
           <div class="left-foot-tweet">
