@@ -6,11 +6,10 @@
 $(document).ready(function() {
 
   const renderTweets = tweets => {
-    console.log(tweets);
     // loops through the tweets database to pass through each tweet into createTweetElement which builds the tweet in order to append it to the tweets container in index.html
     tweets.forEach(tweetData => {
       const $tweet = createTweetElement(tweetData);
-      $('#tweets-container').append($tweet);
+      $('#tweets-container').prepend($tweet);
     });
   };
 
@@ -47,10 +46,27 @@ $(document).ready(function() {
   $("form").submit(function(event) {
     event.preventDefault();
     const form = $(this);
+
+    //show alert if the user tries to tweet a blank tweet
+    if (!$("#tweet-text").first().val()) {
+      alert("Please enter contents you'd like to tweet!");
+      return;
+    }
+
+    // Show alert if the user tries to tweet when the characters are over the max count
+    if ($("#tweet-text").first().val().length > 140) {
+      alert("Please keep your tweet less than 140 characters!");
+      return;
+    }
+
     $.ajax({
       url: "/tweets",
       type: "POST",
       data: form.serialize(),
+    }).then(function() {
+      $("#tweet-text").first().val("");
+      $(".counter").first().val(140);
+      loadTweets();
     });
   });
 
@@ -58,7 +74,6 @@ $(document).ready(function() {
     $.ajax('/tweets', { method: 'GET' })
       .then(function(tweets) {
         renderTweets(tweets);
-        //$button.replaceWith(morePostsHtml);
       });
 
   };
