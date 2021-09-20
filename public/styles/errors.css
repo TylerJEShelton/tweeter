@@ -1,0 +1,13 @@
+#errors {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #970303;
+  background-color: rgb(233, 202, 202);
+  padding: 15px 15px 15px 10px; 
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #970303;
+  text-align: center;
+  /* visibility: hidden; */
+  display: none;
+}

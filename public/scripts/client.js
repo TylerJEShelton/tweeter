@@ -11,16 +11,21 @@ $(document).ready(function() {
   const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
-    console.log(div.innerHTML);
     return div.innerHTML;
   };
 
   const renderTweets = tweets => {
-    // loops through the tweets database to pass through each tweet into createTweetElement which builds the tweet in order to append it to the tweets container in index.html
-    tweets.forEach(tweetData => {
-      const $tweet = createTweetElement(tweetData);
+    if (!Array.isArray(tweets)) {
+      // if only a single tweet is passed
+      const $tweet = createTweetElement(tweets);
       $('#tweets-container').prepend($tweet);
-    });
+    } else {
+      // loops through the tweets database to pass through each tweet into createTweetElement which builds the tweet in order to append it to the tweets container in index.html
+      tweets.forEach(tweetData => {
+        const $tweet = createTweetElement(tweetData);
+        $('#tweets-container').prepend($tweet);
+      });
+    }
   };
 
   const createTweetElement = tweetData => {
@@ -59,24 +64,34 @@ $(document).ready(function() {
 
     //show alert if the user tries to tweet a blank tweet
     if (!$("#tweet-text").first().val()) {
-      alert("Please enter contents you'd like to tweet!");
+      //alert("Please enter contents you'd like to tweet!");
+      $("#errors").text("🚫 Please enter contents before tweeting! Tweets cannot be blank! 🚫");
+      $("#errors").slideDown(200);
+
       return;
     }
 
     // Show alert if the user tries to tweet when the characters are over the max count
     if ($("#tweet-text").first().val().length > 140) {
-      alert("Please keep your tweet less than 140 characters!");
+      //alert("Please keep your tweet less than 140 characters!");
+      $("#errors").text("🚫 Please keep your tweet less than 140 characters! 🚫");
+      $("#errors").slideDown(200);
       return;
     }
+
 
     $.ajax({
       url: "/tweets",
       type: "POST",
       data: form.serialize(),
     }).then(function() {
+      $("#errors").slideUp(200);
       $("#tweet-text").first().val("");
       $(".counter").first().val(140);
-      loadTweets();
+      $.ajax('/tweets', { method: 'GET' })
+        .then(function(tweets) {
+          renderTweets(tweets[tweets.length - 1]);
+        });
     });
   });
 
