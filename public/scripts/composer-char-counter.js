@@ -7,7 +7,7 @@ $(document).ready(function() {
     if (maxChars - textLength < 0) {
       counter.style.color = "red";
     } else {
-      counter.style.color = "#545149";
+      counter.style.color = "#113D40";
     }
     counter.value = maxChars - textLength;
   });

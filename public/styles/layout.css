@@ -15,8 +15,8 @@ html {
  */
 
 body {
-  color: #545149;
-  background-color: #f4f1ec;
+  color: #113D40;
+  background-color: #E7ECEE;
   font-size: 24px;
   font-family: "Source Sans Pro", sans-serif;
   display: flex;
@@ -29,8 +29,8 @@ body {
 
 .container {
 
-  width: 90%; 
-  background-color: #f4f1ec;
+  width: 90%;
+  background-color: #E7ECEE;
   margin: 0 auto;
   margin-top: 20px;
  
@@ -40,7 +40,7 @@ body {
 
 @media only screen and (min-width: 1024px) {
   nav {
-    background-color: #4056A1;
+    background-color: #113D40;
     position: none;
     height: 120px;
     position: fixed;
@@ -80,6 +80,10 @@ body {
   header h2 {
     margin: 0;
     margin-top: 10px;
+  }
+
+  .tweet-body {
+    font-size: 125%;
   }
 
 }

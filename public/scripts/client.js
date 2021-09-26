@@ -3,9 +3,6 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
-//const escape = require('./escape');
-
 $(document).ready(function() {
 
   const escape = function(str) {
@@ -62,18 +59,16 @@ $(document).ready(function() {
     event.preventDefault();
     const form = $(this);
 
-    //show alert if the user tries to tweet a blank tweet
+    //show error if the user tries to tweet a blank tweet
     if (!$("#tweet-text").first().val()) {
-      //alert("Please enter contents you'd like to tweet!");
       $("#errors").text("🚫 Please enter contents before tweeting! Tweets cannot be blank! 🚫");
       $("#errors").slideDown(200);
 
       return;
     }
 
-    // Show alert if the user tries to tweet when the characters are over the max count
+    // Show error if the user tries to tweet when the characters are over the max count
     if ($("#tweet-text").first().val().length > 140) {
-      //alert("Please keep your tweet less than 140 characters!");
       $("#errors").text("🚫 Please keep your tweet less than 140 characters! 🚫");
       $("#errors").slideDown(200);
       return;

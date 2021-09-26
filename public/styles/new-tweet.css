@@ -1,5 +1,5 @@
 .new-tweet {
-color: #545149;
+color: #113D40;
 width: 100%;
 }
 
@@ -7,11 +7,11 @@ width: 100%;
   width: 100%;
   outline: none;
   resize: none;
-  /* white-space: nowrap; */
+  color: #113D40;
   overflow-x: scroll;
-  background-color: #f4f1ec;
+  background-color: #E7ECEE;
   border: 0;
-  border-color: #545149;
+  border-color: #113D40;
   border-bottom-style: solid;
   border-bottom-width: 3px;
   padding-bottom: 0px;
@@ -24,13 +24,13 @@ width: 100%;
   flex-direction: row;
   justify-content: space-between;
   font-family: Bungee, sans-serif;
-  color: #545149;
+  color: #113D40;
   padding-right: 10px;
 }
 
 .tweet-button {
-  background-color: #4056A1;
-  color: #FFFFFF;
+  background-color: #113D40;
+  color: #F3F3F7;
   border: 0;
   padding: 4px 10px 4px 10px;
 }
