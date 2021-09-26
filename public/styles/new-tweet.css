@@ -7,7 +7,7 @@ width: 100%;
   width: 100%;
   outline: none;
   resize: none;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   overflow-x: scroll;
   background-color: #f4f1ec;
   border: 0;
@@ -15,7 +15,7 @@ width: 100%;
   border-bottom-style: solid;
   border-bottom-width: 3px;
   padding-bottom: 0px;
-  padding-top: 5px;
+  padding-top: 25px;
   margin-bottom: 10px;
 }
 

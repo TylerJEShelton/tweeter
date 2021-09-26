@@ -19,6 +19,8 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: "Source Sans Pro", sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 /*
@@ -28,8 +30,56 @@ body {
 .container {
 
   width: 90%; 
-  /* background-color: #a16a11; */
   background-color: #f4f1ec;
   margin: 0 auto;
+  margin-top: 20px;
  
  }
+
+/* Desktop Styles */
+
+@media only screen and (min-width: 1024px) {
+  nav {
+    background-color: #4056A1;
+    position: none;
+    height: 120px;
+    position: fixed;
+    top: 0;
+  }
+
+  body {
+    flex-direction: row;
+    margin-top: 200px;
+  }
+
+  .profile-header {
+    margin-top: 0px;
+    margin-right: 150px;
+    margin-left: 50px;
+    flex: 40%;
+    flex-direction: column;
+    padding-top: 0px;
+    height: 400px;
+    max-width: 450px;  
+    position: sticky;
+    top: 200px;
+  }
+
+  .container {
+    flex: 60%;
+    margin-right: 50px;
+    margin-top: 0;
+  }
+
+  header img {
+    width: 100%;
+    height: auto;
+    margin-right: 0;;
+  }
+
+  header h2 {
+    margin: 0;
+    margin-top: 10px;
+  }
+
+}
