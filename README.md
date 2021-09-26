@@ -11,7 +11,7 @@ This project was edited and completed by [Tyler Shelton](https://github.com/Tyle
 ## Screenshots
 
 ![main](https://github.com/TylerJEShelton/tweeter/blob/master/public/images/main.png)
-![error1](https://github.com/TylerJEShelton/tweeter/blob/master/public/images/error.png)
+![error1](https://github.com/TylerJEShelton/tweeter/blob/master/public/images/error1.png)
 ![mobile](https://github.com/TylerJEShelton/tweeter/blob/master/public/images/mobile.png)
 ![error2](https://github.com/TylerJEShelton/tweeter/blob/master/public/images/error2.png)
 
